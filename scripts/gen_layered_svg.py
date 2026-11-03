@@ -10,8 +10,8 @@ Mermaid 的自动布局无法保证层等宽与横向排布（subgraph 内 direc
 
 用法:
     python gen_layered_svg.py spec.json -o out.svg
-    python gen_layered_svg.py --example > spec.json     # 导出示例规格
-    python gen_layered_svg.py spec.json --png out.png   # 需 cairosvg
+    python gen_layered_svg.py --example                 # 打印 assets/example-spec.json
+    python gen_layered_svg.py spec.json --png out.png   # 可选；需本机已安装 cairosvg
 
 规格 schema:
 {
@@ -28,8 +28,8 @@ Mermaid 的自动布局无法保证层等宽与横向排布（subgraph 内 direc
       "subtitle": "Presentation",      // 可选，层名下小字
       "color": "blue",                 // 或 [fill, stroke, sep] 自定义
       "modules": [
-        {"text": ["设备接入", "简要说明"]},
-        {"text": ["空闲预热", "preloadApp"], "highlight": true}
+        {"text": ["创建订单", "简要说明"]},
+        {"text": ["幂等校验"], "highlight": true}
       ]
     }
   ]
@@ -86,52 +86,13 @@ PALETTE = {
 }
 CYCLE = ["blue", "orange", "green", "purple", "teal", "grey"]
 
-EXAMPLE = {
-    "title": "基于 wujie 的 Plugin 页面渲染 · 分层架构",
-    "width": 1140,
-    "arrows": True,
-    "legend": {"label": "黄底 = 防闪烁 / 防白屏措施", "color": "highlight"},
-    "layers": [
-        {
-            "name": "接入层",
-            "subtitle": "Presentation",
-            "color": "blue",
-            "modules": [
-                {"text": ["设备接入"]},
-                {"text": ["用户点击"]},
-                {"text": ["路由跳转"]},
-                {"text": ["路由守卫"]},
-                {"text": ["空闲预热", "preloadApp"]}
-            ]
-        },
-        {
-            "name": "主进程 · 控制面",
-            "subtitle": "Electron Main",
-            "color": "orange",
-            "modules": [
-                {"text": ["loadPlugin", "定位插件目录"]},
-                {"text": ["读 manifest", "package.json meta"]},
-                {"text": ["安全校验", "zip + SHA-256"]},
-                {"text": ["initViews", "路由编排"]},
-                {"text": ["add-route", "下发渲染端"]}
-            ]
-        },
-        {
-            "name": "渲染基座层",
-            "subtitle": "Vue3 Renderer",
-            "color": "green",
-            "modules": [
-                {"text": ["静态路由", "/plugin/*"]},
-                {"text": ["动态注册", "addRoute"]},
-                {"text": ["PluginContainer", "WujieVue :alive"]},
-                {"text": ["通信注入", "props · bus"]},
-                {"text": ["防闪烁", "Shadow DOM 监听"], "highlight": True}
-            ]
-        }
-    ]
-}
-
 _font_cache: dict = {}
+
+
+def example_spec_path() -> str:
+    """示例规格与脚本相对位置固定，不依赖当前工作目录。"""
+    return os.path.normpath(os.path.join(
+        os.path.dirname(os.path.abspath(__file__)), "..", "assets", "example-spec.json"))
 
 
 def warn(msg: str):
@@ -378,7 +339,7 @@ def main():
     p.add_argument("spec", nargs="?", help="JSON 规格文件路径")
     p.add_argument("-o", "--out", help="输出 SVG 路径")
     p.add_argument("--example", action="store_true", help="输出示例规格并退出")
-    p.add_argument("--png", help="同时导出 PNG（需 pip install cairosvg）")
+    p.add_argument("--png", help="同时导出 PNG（需本机已安装 cairosvg，脚本不代为安装）")
     args = p.parse_args()
 
     # Windows 控制台默认 GBK：中文输出 / 重定向到文件会乱码
@@ -387,7 +348,12 @@ def main():
             stream.reconfigure(encoding="utf-8", errors="replace")
 
     if args.example:
-        print(json.dumps(EXAMPLE, ensure_ascii=False, indent=2))
+        path = example_spec_path()
+        try:
+            with open(path, "r", encoding="utf-8-sig") as f:
+                print(f.read().rstrip("\n"))
+        except OSError as exc:
+            raise SystemExit("读不到示例规格 %s：%s" % (path, exc))
         return
 
     if args.spec:

@@ -1,79 +1,50 @@
 {
-  "title": "基于 wujie 的 Plugin 页面渲染 · 分层架构",
+  "title": "在线订单服务 · 分层架构",
   "width": 1200,
   "arrows": true,
-  "legend": { "label": "黄底 = 防闪烁 / 防白屏措施", "color": "highlight" },
+  "legend": { "label": "黄底 = 校验 / 兜底", "color": "highlight" },
   "layers": [
     {
       "name": "接入层",
-      "subtitle": "Presentation",
+      "subtitle": "Edge",
       "color": "blue",
       "modules": [
-        { "text": ["设备接入"] },
-        { "text": ["用户点击"] },
-        { "text": ["路由跳转"] },
-        { "text": ["路由守卫"] },
-        { "text": ["空闲预热", "preloadApp"] }
+        { "text": ["用户请求"] },
+        { "text": ["身份认证"] },
+        { "text": ["限流"] },
+        { "text": ["路由分发"] }
       ]
     },
     {
-      "name": "主进程 · 控制面",
-      "subtitle": "Electron Main",
+      "name": "应用层",
+      "subtitle": "Application",
       "color": "orange",
       "modules": [
-        { "text": ["loadPlugin", "定位插件目录"] },
-        { "text": ["读 manifest", "package.json meta"] },
-        { "text": ["安全校验", "zip + SHA-256"] },
-        { "text": ["initViews", "路由编排"] },
-        { "text": ["add-route + push", "下发渲染端"] }
+        { "text": ["创建订单"] },
+        { "text": ["查询订单"] },
+        { "text": ["幂等校验"], "highlight": true }
       ]
     },
     {
-      "name": "渲染基座层",
-      "subtitle": "Vue3 Renderer",
+      "name": "领域层",
+      "subtitle": "Domain",
       "color": "green",
       "modules": [
-        { "text": ["静态路由", "/plugin/*"] },
-        { "text": ["动态注册", "addRoute"] },
-        { "text": ["PluginContainer", "WujieVue :alive"] },
-        { "text": ["通信注入", "props · bus · hub"] },
-        { "text": ["防闪烁", "Shadow DOM 监听首屏"], "highlight": true }
+        { "text": ["订单"] },
+        { "text": ["库存预留"] },
+        { "text": ["支付编排"] },
+        { "text": ["超时兜底"], "highlight": true },
+        { "text": ["审计日志"] }
       ]
     },
     {
-      "name": "wujie 沙箱层",
-      "subtitle": "wujie-vue3",
-      "color": "purple",
-      "modules": [
-        { "text": ["iframe", "JS 隔离"] },
-        { "text": ["Shadow DOM", "样式隔离"] },
-        { "text": ["jsBeforeLoaders", "注入 window.magi"] },
-        { "text": ["alive 保活", "activated 恢复"] },
-        { "text": ["滚动垫片", "生命周期兜底"], "highlight": true }
-      ]
-    },
-    {
-      "name": "主进程 · 数据面",
-      "subtitle": "Electron Main",
-      "color": "teal",
-      "modules": [
-        { "text": ["magiplugin://", "协议 handler"] },
-        { "text": ["SHA-256", "完整性校验"] },
-        { "text": ["防白屏", "content-ready"], "highlight": true },
-        { "text": ["MainWin", "延迟 show (800ms 超时)"], "highlight": true },
-        { "text": ["事件回退", "load 补发"] }
-      ]
-    },
-    {
-      "name": "资源层",
-      "subtitle": "userData/plugins/",
+      "name": "基础设施",
+      "subtitle": "Infrastructure",
       "color": "grey",
       "modules": [
-        { "text": ["插件 zip 包", "运行时下载"] },
-        { "text": ["package.json", "meta 配置"] },
-        { "text": ["dist/", "页面资源"] },
-        { "text": [".manifest.json", "校验清单"] },
-        { "text": ["预扫描", "scanPluginResources"] }
+        { "text": ["订单库"] },
+        { "text": ["消息队列"] },
+        { "text": ["外部支付"] }
       ]
     }
   ]

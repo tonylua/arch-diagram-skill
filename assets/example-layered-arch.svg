@@ -1,122 +1,56 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="890" viewBox="0 0 1200 890" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="618" viewBox="0 0 1200 618" font-family="PingFang SC, Microsoft YaHei, sans-serif">
   <defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#90A4AE"/></marker></defs>
-  <rect x="0" y="0" width="1200" height="890" fill="#FAFAFA"/>
-  <text x="600" y="40" text-anchor="middle" font-size="22" font-weight="bold" fill="#37474F">基于 wujie 的 Plugin 页面渲染 · 分层架构</text>
+  <rect x="0" y="0" width="1200" height="618" fill="#FAFAFA"/>
+  <text x="600" y="40" text-anchor="middle" font-size="22" font-weight="bold" fill="#37474F">在线订单服务 · 分层架构</text>
   <rect x="40" y="26" width="16" height="16" rx="3" fill="#FFF9C4" stroke="#FBC02D"/>
-  <text x="64" y="39" font-size="12" fill="#546E7A">黄底 = 防闪烁 / 防白屏措施</text>
+  <text x="64" y="39" font-size="12" fill="#546E7A">黄底 = 校验 / 兜底</text>
   <rect x="40" y="70" width="1120" height="100" rx="10" fill="#E3F2FD" stroke="#64B5F6"/>
   <text x="140" y="112" text-anchor="middle" font-size="18" font-weight="bold" fill="#455A64">接入层</text>
-  <text x="140" y="134" text-anchor="middle" font-size="11" fill="#78909C">Presentation</text>
+  <text x="140" y="134" text-anchor="middle" font-size="11" fill="#78909C">Edge</text>
   <line x1="240" y1="88" x2="240" y2="152" stroke="#90CAF9"/>
-    <rect x="260.0" y="92.0" width="160.0" height="56" rx="6" fill="#FFFFFF" stroke="#64B5F6"/>
-    <text x="340.0" y="124.5" text-anchor="middle" font-size="13" fill="#37474F">设备接入</text>
-    <rect x="440.0" y="92.0" width="160.0" height="56" rx="6" fill="#FFFFFF" stroke="#64B5F6"/>
-    <text x="520.0" y="124.5" text-anchor="middle" font-size="13" fill="#37474F">用户点击</text>
-    <rect x="620.0" y="92.0" width="160.0" height="56" rx="6" fill="#FFFFFF" stroke="#64B5F6"/>
-    <text x="700.0" y="124.5" text-anchor="middle" font-size="13" fill="#37474F">路由跳转</text>
-    <rect x="800.0" y="92.0" width="160.0" height="56" rx="6" fill="#FFFFFF" stroke="#64B5F6"/>
-    <text x="880.0" y="124.5" text-anchor="middle" font-size="13" fill="#37474F">路由守卫</text>
-    <rect x="980.0" y="92.0" width="160.0" height="56" rx="6" fill="#FFFFFF" stroke="#64B5F6"/>
-    <text x="1060.0" y="114.0" text-anchor="middle" font-size="13" fill="#37474F">空闲预热</text>
-    <text x="1060.0" y="133.0" text-anchor="middle" font-size="13" fill="#37474F">preloadApp</text>
+    <rect x="260.0" y="92.0" width="205.0" height="56" rx="6" fill="#FFFFFF" stroke="#64B5F6"/>
+    <text x="362.5" y="124.5" text-anchor="middle" font-size="13" fill="#37474F">用户请求</text>
+    <rect x="485.0" y="92.0" width="205.0" height="56" rx="6" fill="#FFFFFF" stroke="#64B5F6"/>
+    <text x="587.5" y="124.5" text-anchor="middle" font-size="13" fill="#37474F">身份认证</text>
+    <rect x="710.0" y="92.0" width="205.0" height="56" rx="6" fill="#FFFFFF" stroke="#64B5F6"/>
+    <text x="812.5" y="124.5" text-anchor="middle" font-size="13" fill="#37474F">限流</text>
+    <rect x="935.0" y="92.0" width="205.0" height="56" rx="6" fill="#FFFFFF" stroke="#64B5F6"/>
+    <text x="1037.5" y="124.5" text-anchor="middle" font-size="13" fill="#37474F">路由分发</text>
   <line x1="600" y1="172" x2="600" y2="200" stroke="#90A4AE" stroke-width="2" marker-end="url(#arrow)"/>
   <rect x="40" y="206" width="1120" height="100" rx="10" fill="#FFF3E0" stroke="#FFB74D"/>
-  <text x="140" y="248" text-anchor="middle" font-size="18" font-weight="bold" fill="#455A64">主进程 · 控制面</text>
-  <text x="140" y="270" text-anchor="middle" font-size="11" fill="#78909C">Electron Main</text>
+  <text x="140" y="248" text-anchor="middle" font-size="18" font-weight="bold" fill="#455A64">应用层</text>
+  <text x="140" y="270" text-anchor="middle" font-size="11" fill="#78909C">Application</text>
   <line x1="240" y1="224" x2="240" y2="288" stroke="#FFCC80"/>
-    <rect x="260.0" y="228.0" width="160.0" height="56" rx="6" fill="#FFFFFF" stroke="#FFB74D"/>
-    <text x="340.0" y="250.0" text-anchor="middle" font-size="13" fill="#37474F">loadPlugin</text>
-    <text x="340.0" y="269.0" text-anchor="middle" font-size="13" fill="#37474F">定位插件目录</text>
-    <rect x="440.0" y="228.0" width="160.0" height="56" rx="6" fill="#FFFFFF" stroke="#FFB74D"/>
-    <text x="520.0" y="250.0" text-anchor="middle" font-size="13" fill="#37474F">读 manifest</text>
-    <text x="520.0" y="269.0" text-anchor="middle" font-size="13" fill="#37474F">package.json meta</text>
-    <rect x="620.0" y="228.0" width="160.0" height="56" rx="6" fill="#FFFFFF" stroke="#FFB74D"/>
-    <text x="700.0" y="250.0" text-anchor="middle" font-size="13" fill="#37474F">安全校验</text>
-    <text x="700.0" y="269.0" text-anchor="middle" font-size="13" fill="#37474F">zip + SHA-256</text>
-    <rect x="800.0" y="228.0" width="160.0" height="56" rx="6" fill="#FFFFFF" stroke="#FFB74D"/>
-    <text x="880.0" y="250.0" text-anchor="middle" font-size="13" fill="#37474F">initViews</text>
-    <text x="880.0" y="269.0" text-anchor="middle" font-size="13" fill="#37474F">路由编排</text>
-    <rect x="980.0" y="228.0" width="160.0" height="56" rx="6" fill="#FFFFFF" stroke="#FFB74D"/>
-    <text x="1060.0" y="250.0" text-anchor="middle" font-size="13" fill="#37474F">add-route + push</text>
-    <text x="1060.0" y="269.0" text-anchor="middle" font-size="13" fill="#37474F">下发渲染端</text>
+    <rect x="350.0" y="228.0" width="220.0" height="56" rx="6" fill="#FFFFFF" stroke="#FFB74D"/>
+    <text x="460.0" y="260.5" text-anchor="middle" font-size="13" fill="#37474F">创建订单</text>
+    <rect x="590.0" y="228.0" width="220.0" height="56" rx="6" fill="#FFFFFF" stroke="#FFB74D"/>
+    <text x="700.0" y="260.5" text-anchor="middle" font-size="13" fill="#37474F">查询订单</text>
+    <rect x="830.0" y="228.0" width="220.0" height="56" rx="6" fill="#FFF9C4" stroke="#FBC02D"/>
+    <text x="940.0" y="260.5" text-anchor="middle" font-size="13" font-weight="bold" fill="#37474F">幂等校验</text>
   <line x1="600" y1="308" x2="600" y2="336" stroke="#90A4AE" stroke-width="2" marker-end="url(#arrow)"/>
   <rect x="40" y="342" width="1120" height="100" rx="10" fill="#E8F5E9" stroke="#81C784"/>
-  <text x="140" y="384" text-anchor="middle" font-size="18" font-weight="bold" fill="#455A64">渲染基座层</text>
-  <text x="140" y="406" text-anchor="middle" font-size="11" fill="#78909C">Vue3 Renderer</text>
+  <text x="140" y="384" text-anchor="middle" font-size="18" font-weight="bold" fill="#455A64">领域层</text>
+  <text x="140" y="406" text-anchor="middle" font-size="11" fill="#78909C">Domain</text>
   <line x1="240" y1="360" x2="240" y2="424" stroke="#A5D6A7"/>
     <rect x="260.0" y="364.0" width="160.0" height="56" rx="6" fill="#FFFFFF" stroke="#81C784"/>
-    <text x="340.0" y="386.0" text-anchor="middle" font-size="13" fill="#37474F">静态路由</text>
-    <text x="340.0" y="405.0" text-anchor="middle" font-size="13" fill="#37474F">/plugin/*</text>
+    <text x="340.0" y="396.5" text-anchor="middle" font-size="13" fill="#37474F">订单</text>
     <rect x="440.0" y="364.0" width="160.0" height="56" rx="6" fill="#FFFFFF" stroke="#81C784"/>
-    <text x="520.0" y="386.0" text-anchor="middle" font-size="13" fill="#37474F">动态注册</text>
-    <text x="520.0" y="405.0" text-anchor="middle" font-size="13" fill="#37474F">addRoute</text>
+    <text x="520.0" y="396.5" text-anchor="middle" font-size="13" fill="#37474F">库存预留</text>
     <rect x="620.0" y="364.0" width="160.0" height="56" rx="6" fill="#FFFFFF" stroke="#81C784"/>
-    <text x="700.0" y="386.0" text-anchor="middle" font-size="13" fill="#37474F">PluginContainer</text>
-    <text x="700.0" y="405.0" text-anchor="middle" font-size="13" fill="#37474F">WujieVue :alive</text>
-    <rect x="800.0" y="364.0" width="160.0" height="56" rx="6" fill="#FFFFFF" stroke="#81C784"/>
-    <text x="880.0" y="386.0" text-anchor="middle" font-size="13" fill="#37474F">通信注入</text>
-    <text x="880.0" y="405.0" text-anchor="middle" font-size="13" fill="#37474F">props · bus · hub</text>
-    <rect x="980.0" y="364.0" width="160.0" height="56" rx="6" fill="#FFF9C4" stroke="#FBC02D"/>
-    <text x="1060.0" y="386.0" text-anchor="middle" font-size="13" font-weight="bold" fill="#37474F">防闪烁</text>
-    <text x="1060.0" y="405.0" text-anchor="middle" font-size="13" fill="#37474F">Shadow DOM 监听首屏</text>
+    <text x="700.0" y="396.5" text-anchor="middle" font-size="13" fill="#37474F">支付编排</text>
+    <rect x="800.0" y="364.0" width="160.0" height="56" rx="6" fill="#FFF9C4" stroke="#FBC02D"/>
+    <text x="880.0" y="396.5" text-anchor="middle" font-size="13" font-weight="bold" fill="#37474F">超时兜底</text>
+    <rect x="980.0" y="364.0" width="160.0" height="56" rx="6" fill="#FFFFFF" stroke="#81C784"/>
+    <text x="1060.0" y="396.5" text-anchor="middle" font-size="13" fill="#37474F">审计日志</text>
   <line x1="600" y1="444" x2="600" y2="472" stroke="#90A4AE" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="40" y="478" width="1120" height="100" rx="10" fill="#F3E5F5" stroke="#BA68C8"/>
-  <text x="140" y="520" text-anchor="middle" font-size="18" font-weight="bold" fill="#455A64">wujie 沙箱层</text>
-  <text x="140" y="542" text-anchor="middle" font-size="11" fill="#78909C">wujie-vue3</text>
-  <line x1="240" y1="496" x2="240" y2="560" stroke="#CE93D8"/>
-    <rect x="260.0" y="500.0" width="160.0" height="56" rx="6" fill="#FFFFFF" stroke="#BA68C8"/>
-    <text x="340.0" y="522.0" text-anchor="middle" font-size="13" fill="#37474F">iframe</text>
-    <text x="340.0" y="541.0" text-anchor="middle" font-size="13" fill="#37474F">JS 隔离</text>
-    <rect x="440.0" y="500.0" width="160.0" height="56" rx="6" fill="#FFFFFF" stroke="#BA68C8"/>
-    <text x="520.0" y="522.0" text-anchor="middle" font-size="13" fill="#37474F">Shadow DOM</text>
-    <text x="520.0" y="541.0" text-anchor="middle" font-size="13" fill="#37474F">样式隔离</text>
-    <rect x="620.0" y="500.0" width="160.0" height="56" rx="6" fill="#FFFFFF" stroke="#BA68C8"/>
-    <text x="700.0" y="522.0" text-anchor="middle" font-size="13" fill="#37474F">jsBeforeLoaders</text>
-    <text x="700.0" y="541.0" text-anchor="middle" font-size="13" fill="#37474F">注入 window.magi</text>
-    <rect x="800.0" y="500.0" width="160.0" height="56" rx="6" fill="#FFFFFF" stroke="#BA68C8"/>
-    <text x="880.0" y="522.0" text-anchor="middle" font-size="13" fill="#37474F">alive 保活</text>
-    <text x="880.0" y="541.0" text-anchor="middle" font-size="13" fill="#37474F">activated 恢复</text>
-    <rect x="980.0" y="500.0" width="160.0" height="56" rx="6" fill="#FFF9C4" stroke="#FBC02D"/>
-    <text x="1060.0" y="522.0" text-anchor="middle" font-size="13" font-weight="bold" fill="#37474F">滚动垫片</text>
-    <text x="1060.0" y="541.0" text-anchor="middle" font-size="13" fill="#37474F">生命周期兜底</text>
-  <line x1="600" y1="580" x2="600" y2="608" stroke="#90A4AE" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="40" y="614" width="1120" height="100" rx="10" fill="#E0F2F1" stroke="#4DB6AC"/>
-  <text x="140" y="656" text-anchor="middle" font-size="18" font-weight="bold" fill="#455A64">主进程 · 数据面</text>
-  <text x="140" y="678" text-anchor="middle" font-size="11" fill="#78909C">Electron Main</text>
-  <line x1="240" y1="632" x2="240" y2="696" stroke="#80CBC4"/>
-    <rect x="260.0" y="636.0" width="160.0" height="56" rx="6" fill="#FFFFFF" stroke="#4DB6AC"/>
-    <text x="340.0" y="658.0" text-anchor="middle" font-size="13" fill="#37474F">magiplugin://</text>
-    <text x="340.0" y="677.0" text-anchor="middle" font-size="13" fill="#37474F">协议 handler</text>
-    <rect x="440.0" y="636.0" width="160.0" height="56" rx="6" fill="#FFFFFF" stroke="#4DB6AC"/>
-    <text x="520.0" y="658.0" text-anchor="middle" font-size="13" fill="#37474F">SHA-256</text>
-    <text x="520.0" y="677.0" text-anchor="middle" font-size="13" fill="#37474F">完整性校验</text>
-    <rect x="620.0" y="636.0" width="160.0" height="56" rx="6" fill="#FFF9C4" stroke="#FBC02D"/>
-    <text x="700.0" y="658.0" text-anchor="middle" font-size="13" font-weight="bold" fill="#37474F">防白屏</text>
-    <text x="700.0" y="677.0" text-anchor="middle" font-size="13" fill="#37474F">content-ready</text>
-    <rect x="800.0" y="636.0" width="160.0" height="56" rx="6" fill="#FFF9C4" stroke="#FBC02D"/>
-    <text x="880.0" y="658.0" text-anchor="middle" font-size="13" font-weight="bold" fill="#37474F">MainWin</text>
-    <text x="880.0" y="677.0" text-anchor="middle" font-size="13" fill="#37474F">延迟 show (800ms 超时)</text>
-    <rect x="980.0" y="636.0" width="160.0" height="56" rx="6" fill="#FFFFFF" stroke="#4DB6AC"/>
-    <text x="1060.0" y="658.0" text-anchor="middle" font-size="13" fill="#37474F">事件回退</text>
-    <text x="1060.0" y="677.0" text-anchor="middle" font-size="13" fill="#37474F">load 补发</text>
-  <line x1="600" y1="716" x2="600" y2="744" stroke="#90A4AE" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="40" y="750" width="1120" height="100" rx="10" fill="#ECEFF1" stroke="#90A4AE"/>
-  <text x="140" y="792" text-anchor="middle" font-size="18" font-weight="bold" fill="#455A64">资源层</text>
-  <text x="140" y="814" text-anchor="middle" font-size="11" fill="#78909C">userData/plugins/</text>
-  <line x1="240" y1="768" x2="240" y2="832" stroke="#B0BEC5"/>
-    <rect x="260.0" y="772.0" width="160.0" height="56" rx="6" fill="#FFFFFF" stroke="#90A4AE"/>
-    <text x="340.0" y="794.0" text-anchor="middle" font-size="13" fill="#37474F">插件 zip 包</text>
-    <text x="340.0" y="813.0" text-anchor="middle" font-size="13" fill="#37474F">运行时下载</text>
-    <rect x="440.0" y="772.0" width="160.0" height="56" rx="6" fill="#FFFFFF" stroke="#90A4AE"/>
-    <text x="520.0" y="794.0" text-anchor="middle" font-size="13" fill="#37474F">package.json</text>
-    <text x="520.0" y="813.0" text-anchor="middle" font-size="13" fill="#37474F">meta 配置</text>
-    <rect x="620.0" y="772.0" width="160.0" height="56" rx="6" fill="#FFFFFF" stroke="#90A4AE"/>
-    <text x="700.0" y="794.0" text-anchor="middle" font-size="13" fill="#37474F">dist/</text>
-    <text x="700.0" y="813.0" text-anchor="middle" font-size="13" fill="#37474F">页面资源</text>
-    <rect x="800.0" y="772.0" width="160.0" height="56" rx="6" fill="#FFFFFF" stroke="#90A4AE"/>
-    <text x="880.0" y="794.0" text-anchor="middle" font-size="13" fill="#37474F">.manifest.json</text>
-    <text x="880.0" y="813.0" text-anchor="middle" font-size="13" fill="#37474F">校验清单</text>
-    <rect x="980.0" y="772.0" width="160.0" height="56" rx="6" fill="#FFFFFF" stroke="#90A4AE"/>
-    <text x="1060.0" y="794.0" text-anchor="middle" font-size="13" fill="#37474F">预扫描</text>
-    <text x="1060.0" y="813.0" text-anchor="middle" font-size="13" fill="#37474F">scanPluginResources</text>
+  <rect x="40" y="478" width="1120" height="100" rx="10" fill="#ECEFF1" stroke="#90A4AE"/>
+  <text x="140" y="520" text-anchor="middle" font-size="18" font-weight="bold" fill="#455A64">基础设施</text>
+  <text x="140" y="542" text-anchor="middle" font-size="11" fill="#78909C">Infrastructure</text>
+  <line x1="240" y1="496" x2="240" y2="560" stroke="#B0BEC5"/>
+    <rect x="350.0" y="500.0" width="220.0" height="56" rx="6" fill="#FFFFFF" stroke="#90A4AE"/>
+    <text x="460.0" y="532.5" text-anchor="middle" font-size="13" fill="#37474F">订单库</text>
+    <rect x="590.0" y="500.0" width="220.0" height="56" rx="6" fill="#FFFFFF" stroke="#90A4AE"/>
+    <text x="700.0" y="532.5" text-anchor="middle" font-size="13" fill="#37474F">消息队列</text>
+    <rect x="830.0" y="500.0" width="220.0" height="56" rx="6" fill="#FFFFFF" stroke="#90A4AE"/>
+    <text x="940.0" y="532.5" text-anchor="middle" font-size="13" fill="#37474F">外部支付</text>
 </svg>
