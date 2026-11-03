@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1162" height="741" viewBox="0 0 1162 741" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+<defs>
+<marker id="arrow-blue" markerWidth="10" markerHeight="8" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#1565C0"/></marker>
+<marker id="arrow-green" markerWidth="10" markerHeight="8" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2E7D32"/></marker>
+<marker id="arrow-red" markerWidth="10" markerHeight="8" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#C62828"/></marker>
+<marker id="arrow-orange" markerWidth="10" markerHeight="8" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#EF6C00"/></marker>
+</defs>
+<rect width="1162" height="741" fill="#FFFFFF"/>
+<text x="581.0" y="56.0" text-anchor="middle" font-size="28" font-weight="bold" fill="#1A237E">先校验库存，再创建订单</text>
+<text x="581.0" y="87.0" text-anchor="middle" font-size="15" fill="#3949AB">按校验结果决定继续或退回；支付和通知不是创建的下一步。</text>
+<rect x="88.0" y="105.0" width="986.0" height="166.0" rx="16" fill="#E3F2FD" stroke="#1E88E5" stroke-width="1.5"/>
+<text x="106.0" y="129.0" font-size="15" font-weight="bold" fill="#1565C0">主链：请求已经明确，按步骤交接</text>
+<rect x="106.0" y="161.0" width="189.0" height="70.0" rx="14" fill="#FFFFFF" stroke="#1E88E5" stroke-width="2"/>
+<rect x="124.0" y="186.0" width="16" height="20" rx="2" fill="none" stroke="#37474F" stroke-width="1.6"/><path d="M127.0 192.0 h8 M127.0 196.0 h8 M127.0 200.0 h5" fill="none" stroke="#37474F" stroke-width="1.6"/>
+<circle cx="166.0" cy="187.0" r="12" fill="#1565C0"/>
+<text x="166.0" y="191.0" text-anchor="middle" font-size="12" font-weight="bold" fill="#FFFFFF">1</text>
+<text x="186.0" y="191.0" font-size="16" font-weight="bold" fill="#1A237E">接收请求</text>
+<text x="154.0" y="213.0" font-size="13" fill="#455A64">订单草稿与收货信息</text>
+<rect x="373.0" y="161.0" width="188.0" height="70.0" rx="14" fill="#FFFFFF" stroke="#1E88E5" stroke-width="2"/>
+<circle cx="397.0" cy="194.0" r="6" fill="none" stroke="#37474F" stroke-width="1.6"/><path d="M401.5 198.5 l6 6" fill="none" stroke="#37474F" stroke-width="1.6"/>
+<circle cx="433.0" cy="187.0" r="12" fill="#1565C0"/>
+<text x="433.0" y="191.0" text-anchor="middle" font-size="12" font-weight="bold" fill="#FFFFFF">2</text>
+<text x="453.0" y="191.0" font-size="16" font-weight="bold" fill="#1A237E">校验库存</text>
+<text x="421.0" y="213.0" font-size="13" fill="#455A64">只读查询，不扣减</text>
+<polygon points="714.0,154.0 785.0,196.0 714.0,238.0 643.0,196.0" fill="#FFF8E1" stroke="#FB8C00" stroke-width="2"/>
+<text x="714.0" y="201.0" text-anchor="middle" font-size="15" font-weight="bold" fill="#EF6C00">库存足够？</text>
+<rect x="867.0" y="161.0" width="189.0" height="70.0" rx="14" fill="#FFFFFF" stroke="#43A047" stroke-width="2"/>
+<circle cx="893.0" cy="196.0" r="4" fill="none" stroke="#37474F" stroke-width="1.6"/><circle cx="893.0" cy="196.0" r="8" fill="none" stroke="#37474F" stroke-width="1.6" stroke-dasharray="3 2"/>
+<circle cx="927.0" cy="187.0" r="12" fill="#2E7D32"/>
+<text x="927.0" y="191.0" text-anchor="middle" font-size="12" font-weight="bold" fill="#FFFFFF">3</text>
+<text x="947.0" y="191.0" font-size="16" font-weight="bold" fill="#1A237E">创建订单</text>
+<text x="915.0" y="213.0" font-size="13" fill="#455A64">写入订单，等待支付</text>
+<rect x="253.0" y="315.0" width="656.0" height="140.0" rx="16" fill="#E3F2FD" stroke="#1E88E5" stroke-width="1.5"/>
+<text x="271.0" y="339.0" font-size="15" font-weight="bold" fill="#1565C0">以下是其他入口，并非上图的下一步</text>
+<rect x="271.0" y="358.0" width="188.0" height="70.0" rx="14" fill="#FFFFFF" stroke="#1E88E5" stroke-width="2"/>
+<rect x="291.0" y="384.0" width="16" height="18" rx="2" fill="none" stroke="#37474F" stroke-width="1.6"/><path d="M294.0 389.0 h8 M294.0 393.0 h8 M294.0 397.0 h8" fill="none" stroke="#37474F" stroke-width="1.6"/>
+<text x="319.0" y="388.0" font-size="16" font-weight="bold" fill="#1A237E">支付</text>
+<text x="319.0" y="410.0" font-size="13" fill="#455A64">外部渠道扣款</text>
+<rect x="487.0" y="358.0" width="188.0" height="70.0" rx="14" fill="#FFFFFF" stroke="#1E88E5" stroke-width="2"/>
+<path d="M507.0 384.0 v16 M507.0 384.0 h10 l-3 4 l3 4 h-10" fill="none" stroke="#37474F" stroke-width="1.6"/>
+<text x="535.0" y="388.0" font-size="16" font-weight="bold" fill="#1A237E">通知</text>
+<text x="535.0" y="410.0" font-size="13" fill="#455A64">向用户发送结果</text>
+<rect x="703.0" y="358.0" width="188.0" height="70.0" rx="14" fill="#FFFFFF" stroke="#E53935" stroke-width="2"/>
+<path d="M719.0 401.0 l10 -16 l10 16 z" fill="none" stroke="#37474F" stroke-width="1.6"/><path d="M729.0 389.0 v5 M729.0 397.0 v1" stroke="#37474F" stroke-width="1.6"/>
+<text x="751.0" y="388.0" font-size="16" font-weight="bold" fill="#1A237E">退回修改</text>
+<text x="751.0" y="410.0" font-size="13" fill="#455A64">库存不足时改草稿</text>
+<rect x="88.0" y="499.0" width="986.0" height="52.0" rx="12" fill="#FFEBEE" stroke="#E53935" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="581.0" y="530.0" text-anchor="middle" font-size="15" font-weight="bold" fill="#C62828">不含：支付结果、发货和售后</text>
+<path d="M297.0 196.0 L371.0 196.0" fill="none" stroke="#2E7D32" stroke-width="2" marker-end="url(#arrow-green)"/>
+<text x="334.0" y="188.0" text-anchor="middle" font-size="13" font-weight="bold" fill="#2E7D32">提交</text>
+<path d="M563.0 196.0 L637.0 196.0" fill="none" stroke="#1565C0" stroke-width="2" marker-end="url(#arrow-blue)"/>
+<path d="M791.0 196.0 L865.0 196.0" fill="none" stroke="#2E7D32" stroke-width="2" marker-end="url(#arrow-green)"/>
+<text x="828.0" y="188.0" text-anchor="middle" font-size="13" font-weight="bold" fill="#2E7D32">是</text>
+<path d="M714.0 244.0 L714.0 301.0 L797.0 301.0 L797.0 358.0" fill="none" stroke="#C62828" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow-red)"/>
+<text x="755.5" y="293.0" text-anchor="middle" font-size="13" font-weight="bold" fill="#C62828">否</text>
+<path d="M891.0 393.0 L1138.0 393.0 L1138.0 603.0 L24.0 603.0 L24.0 196.0 L106.0 196.0" fill="none" stroke="#C62828" stroke-width="2" marker-end="url(#arrow-red)"/>
+<text x="581.0" y="595.0" text-anchor="middle" font-size="13" font-weight="bold" fill="#C62828">修改后重试</text>
+<text x="581.0" y="655.0" text-anchor="middle" font-size="14" font-weight="bold" fill="#C62828">库存查询可以单独结束，不要求继续创建订单。</text>
+<rect x="36" y="673.0" width="1090" height="40" rx="12" fill="#E8EAF6" stroke="#3949AB"/>
+<text x="581.0" y="699.0" text-anchor="middle" font-size="14" font-weight="bold" fill="#1A237E">!  校验通过 ≠ 已经支付    |    支付与通知不是创建订单的隐含后续</text>
+</svg>

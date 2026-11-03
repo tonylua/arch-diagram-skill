@@ -8,9 +8,9 @@
 
 1. 先显示版本和本次实际加载的 `SKILL.md` 路径。
 2. 从当前项目或你的描述里梳理层和模块，不套用固定产品。
-3. 有对齐、等宽、别太细长、别太乱这类排版要求时，用自带脚本生成分层架构 SVG。
-4. 把 SVG 写到当前项目（例如 `docs/` 或项目根目录），不写进技能目录。
-5. 架构图只表达静态层次。要看调用或数据流时，另出一张链路图。
+3. 静态层次用分层图脚本：层等宽，只表达模块归属。
+4. 步骤、分支和回路用流程图脚本：白底卡片，颜色表示结果，失败可以回头。两套版式不要混用。
+5. 把 SVG 写到当前项目（例如 `docs/` 或项目根目录），不写进技能目录。
 
 `svg-architecture-diagram` 是可分发的技能目录，不绑定单一 AI 客户端，也不绑定某种编程语言或业务领域。可安装到支持 Skills 的客户端（例如 Claude Code、Cursor 或 VS Code Copilot）。目录放好后，确认客户端已经发现技能。
 
@@ -28,11 +28,15 @@
     README.md
     references\
       design-rules.md
+      flow-style.md
     scripts\
       gen_layered_svg.py
+      gen_flow_svg.py
     assets\
       example-spec.json
       example-layered-arch.svg
+      example-flow-spec.json
+      example-flow.svg
 ```
 
 常见客户端的安装位置示例（以下使用 Windows 路径写法）：
@@ -49,4 +53,4 @@
 
 ## 3. 脚本做什么
 
-`scripts/gen_layered_svg.py` 读取一份 JSON，画出层等宽的分层架构 SVG。`--example` 打印同目录 `assets/example-spec.json`（一份与具体产品无关的订单服务示例）。脚本不生成链路图，也不安装依赖。
+`scripts/gen_layered_svg.py` 读取带 `layers` 的 JSON，画出层等宽的分层架构 SVG。`scripts/gen_flow_svg.py` 读取带 `rows` 的 JSON，画出流程图。两套 `--example` 分别打印同目录的示例规格。脚本不安装依赖。

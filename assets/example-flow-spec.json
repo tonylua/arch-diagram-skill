@@ -1,0 +1,85 @@
+{
+  "title": "先校验库存，再创建订单",
+  "subtitle": "按校验结果决定继续或退回；支付和通知不是创建的下一步。",
+  "rows": [
+    {
+      "frame": "主链：请求已经明确，按步骤交接",
+      "nodes": [
+        {
+          "id": "recv",
+          "badge": "1",
+          "icon": "doc",
+          "title": "接收请求",
+          "lines": ["订单草稿与收货信息"]
+        },
+        {
+          "id": "check",
+          "badge": "2",
+          "icon": "search",
+          "title": "校验库存",
+          "lines": ["只读查询，不扣减"]
+        },
+        {
+          "id": "gate",
+          "kind": "diamond",
+          "tone": "orange",
+          "title": "库存足够？"
+        },
+        {
+          "id": "create",
+          "badge": "3",
+          "icon": "gear",
+          "tone": "green",
+          "title": "创建订单",
+          "lines": ["写入订单，等待支付"]
+        }
+      ]
+    },
+    {
+      "frame": "以下是其他入口，并非上图的下一步",
+      "nodes": [
+        {
+          "id": "pay",
+          "icon": "list",
+          "title": "支付",
+          "lines": ["外部渠道扣款"]
+        },
+        {
+          "id": "notify",
+          "icon": "flag",
+          "title": "通知",
+          "lines": ["向用户发送结果"]
+        },
+        {
+          "id": "fix",
+          "icon": "warn",
+          "tone": "red",
+          "title": "退回修改",
+          "lines": ["库存不足时改草稿"]
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "id": "exclude",
+          "kind": "banner",
+          "tone": "red",
+          "dashed": true,
+          "title": "不含：支付结果、发货和售后"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    { "from": "recv", "to": "check", "label": "提交", "tone": "green" },
+    { "from": "check", "to": "gate", "tone": "blue" },
+    { "from": "gate", "to": "create", "label": "是", "tone": "green" },
+    { "from": "gate", "to": "fix", "label": "否", "tone": "red", "dashed": true },
+    { "from": "fix", "to": "recv", "label": "修改后重试", "tone": "red", "route": "under" }
+  ],
+  "callouts": [
+    { "tone": "red", "text": "库存查询可以单独结束，不要求继续创建订单。" }
+  ],
+  "footer": ["校验通过 ≠ 已经支付", "支付与通知不是创建订单的隐含后续"]
+}
